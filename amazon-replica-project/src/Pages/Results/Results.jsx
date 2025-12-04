@@ -5,12 +5,15 @@ import axios from "axios"
 import { productUrl } from '../../Api/EndPoints';
 import ProductCard from "../../Components/Product/ProductCard";
 import classes from './results.module.css'
+import Loader from "../../Components/Loader/Loader";
+
 
 
 
 function Results() {
 
   const [results,setresults] = useState([])
+  const [isLoading,setisLoading] = useState(false)
   const {categoryName} = useParams()
   // console.log(categoryName);
   useEffect(()=> {
@@ -19,9 +22,11 @@ function Results() {
     // console.log(res);
     setresults(res.data);
     // console.log(res.data.product);
+    setisLoading(false);
   })
   .catch((error) => { 
     console.log(error);
+    setisLoading(false);
   });
 },[])  
   
@@ -29,16 +34,20 @@ function Results() {
 
   return (
     <Layout>
-      <section>
-        <h1 style={{ padding: "30px" }}>Results</h1>
-        <p style={{ padding: "30px" }}>products / {categoryName}</p>
-        <hr />
-        <div className={classes.products_container}>
-            {results?.map((product) => (
-              <ProductCard key={product.id} product={product}/>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <section>
+          <h1 style={{ padding: "30px" }}>Results</h1>
+          <p style={{ padding: "30px" }}>products / {categoryName}</p>
+          <hr />
+          <div className={classes.products_container}>
+            {results?.map((product, i) => (
+              <ProductCard key={i} product={product} />
             ))}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
     </Layout>
   );
 }
