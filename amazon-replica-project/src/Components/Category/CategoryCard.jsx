@@ -5,11 +5,11 @@ import {Link} from 'react-router-dom'
 function CategoryCard({data}) {
   return (
     <div className={classes.category}>
-      <Link to={`/products/${data.category}`}>
+      <Link to={`/category/${data.name}`}>
         <span>
-          <h2>{data.title}</h2>
+          <h2>{data?.title}</h2>
         </span>
-        <img src={data.imageLink} alt="" />
+        <img src={data?.imageLink} alt="" />
         <p>Shop now</p>
       </Link>
     </div>

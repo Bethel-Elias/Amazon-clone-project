@@ -17,6 +17,7 @@ function Results() {
   const {categoryName} = useParams()
   // console.log(categoryName);
   useEffect(()=> {
+    setisLoading(true);
   axios.get(`${productUrl}/products/category/${categoryName}`)
   .then((res) => {
     // console.log(res);
@@ -39,7 +40,7 @@ function Results() {
       ) : (
         <section>
           <h1 style={{ padding: "30px" }}>Results</h1>
-          <p style={{ padding: "30px" }}>products / {categoryName}</p>
+          <p style={{ padding: "30px" }}>Category / {categoryName}</p>
           <hr />
           <div className={classes.products_container}>
             {results?.map((product, i) => (
