@@ -31,7 +31,7 @@ function Product() {
         <section className={classes.products_container}>
           {products?.map((singleProduct) => {
             return (
-              <ProductCard product={singleProduct} key={singleProduct.id} />
+              <ProductCard product={singleProduct} renderAdd={true} key={singleProduct.id} />
             );
           })}
         </section>
