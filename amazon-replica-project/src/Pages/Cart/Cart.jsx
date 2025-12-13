@@ -14,7 +14,7 @@ function Cart() {
   console.log(basket);
 
   //  for cart box count
-  const total = basket.reduce((amount, item) => {
+  const totalprice = basket.reduce((amount, item) => {
     return item.price * item.amount + amount;
   }, 0);
   console.log(basket);
@@ -81,7 +81,7 @@ function Cart() {
           <div className={classes.subtotal}>
             <div>
               <p>Subtotal({basket?.length} items)</p>
-              <CurrencyFormat amount={total} />
+              <CurrencyFormat amount={totalprice} />
             </div>
             <span>
               <input type="checkbox" />
