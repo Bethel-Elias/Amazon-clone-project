@@ -8,6 +8,7 @@ import classes from "./cart.module.css";
 import {Type} from '../../Utility/action.type.js'
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
+import { img } from "../../Components/Carousel/images/data.js";
 
 function Cart() {
   const [{ basket, user }, dispatch] = useContext(DataContext);
@@ -41,7 +42,10 @@ function Cart() {
           <h2>Hello</h2>
           <h3>Your shopping basket</h3>
           <hr />
-
+          <img
+            src="https://media.gettyimages.com/id/488247272/vector/empty-yellow-shopping-cart.jpg?s=1024x1024&w=gi&k=20&c=CTdttvRzHpRRceGTpy9QH8vhGXZHe_GxcciteezjMaw="
+            alt=""
+          />
           {basket?.length === 0 ? (
             <p>opps!!! No item in the cart</p>
           ) : (
@@ -60,14 +64,14 @@ function Cart() {
                       className={classes.btn}
                       onClick={() => increment(item)}
                     >
-                      <IoIosArrowUp size={20}/>
+                      <IoIosArrowUp size={20} />
                     </button>
                     <span>{item.amount}</span>
                     <button
                       className={classes.btn}
                       onClick={() => decrement(item.id)}
                     >
-                      <IoIosArrowDown size ={20}/>
+                      <IoIosArrowDown size={20} />
                     </button>
                   </div>
                 </section>

@@ -52,6 +52,14 @@ export const reducer = (state,action) =>{
         };
 
 
+        // to make basket empty 
+      case Type.EMPTY_BASKET:
+        return{
+          ...state,
+          basket:[],
+        }
+
+
       default:
         return state;
     }
