@@ -3,6 +3,7 @@
     font-style: italic;
     font-size: small;
    
+   
 }
 .footer_link ul {
     display: flex;
@@ -99,7 +100,7 @@
 .footer_lower{
     background-color: #131A22;
     font-size: 12px;
-    padding: 0 200px;
+    padding: 30px 200px;
 }
 .footer_lower a{
     list-style: none;
